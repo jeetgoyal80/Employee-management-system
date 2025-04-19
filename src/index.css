@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import 'react-toastify/dist/ReactToastify.css';
+
+#tasklist::-webkit-scrollbar,
+#AllTasks::-webkit-scrollbar,
+#task::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
