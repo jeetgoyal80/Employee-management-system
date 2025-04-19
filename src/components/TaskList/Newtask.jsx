@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Newtask = ({ element }) => {
-  const [userdata, setUserdata] = useContext(AuthContext);
+  const userdata = useContext(AuthContext);
 
   if (!userdata || !userdata.employees) {
     console.log("User data not loaded yet.");
@@ -15,43 +15,43 @@ const Newtask = ({ element }) => {
 
 
 
-  const Acceptreq = () => {
-    const id = (JSON.parse((localStorage.getItem('loggedInUser'))).user.Id)-1;
+  // const Acceptreq = () => {
+  //   const id = (JSON.parse((localStorage.getItem('loggedInUser'))).user.Id)-1;
   
-    // Safeguard check
-    if (!id || !userdata.employees[id]) {
-      console.error("Invalid user ID or employee data not found.");
-      return;
-    }
+  //   // Safeguard check
+  //   if (!id || !userdata.employees[id]) {
+  //     console.error("Invalid user ID or employee data not found.");
+  //     return;
+  //   }
   
-    // Get current employee data
-    const employeedata = userdata.employees[id];
+  //   // Get current employee data
+  //   const employeedata = userdata.employees[id];
   
-    // Create updated employee data
-    const updatedEmp = {
-      ...employeedata,
-      newTaskCount: (employeedata.newTaskCount ) - 1,
-      activeCount: (employeedata.activeCount ) + 1,
-      // Uncomment this if needed:
-      // tasks: {
-      //   ...employeedata.tasks,
-      //   newTask: false,
-      //   active: true,
-      // },
-    };
+  //   // Create updated employee data
+  //   const updatedEmp = {
+  //     ...employeedata,
+  //     newTaskCount: (employeedata.newTaskCount ) - 1,
+  //     activeCount: (employeedata.activeCount ) + 1,
+  //     // Uncomment this if needed:
+  //     // tasks: {
+  //     //   ...employeedata.tasks,
+  //     //   newTask: false,
+  //     //   active: true,
+  //     // },
+  //   };
   
-    // Clone and update employees object only for the specific ID
-    const updatedEmployees = {
-      [id]: updatedEmp,
-      ...userdata.employees,
-    };
+  //   // Clone and update employees object only for the specific ID
+  //   const updatedEmployees = {
+  //     [id]: updatedEmp,
+  //     ...userdata.employees,
+  //   };
   
-    // Set updated userdata with updated employees
-    setUserdata({
-      ...userdata,
-      employees: updatedEmployees,
-    });
-  };
+  //   // Set updated userdata with updated employees
+  //   setUserdata({
+  //     ...userdata,
+  //     employees: updatedEmployees,
+  //   });
+  // };
 
   return (
     <div
@@ -79,7 +79,7 @@ const Newtask = ({ element }) => {
       <div className="flex gap-4 mt-4">
         <button
           className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm transition-colors"
-          onClick={Acceptreq}
+          
         >
           Accept Task
         </button>

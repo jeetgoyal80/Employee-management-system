@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserinfo, setloggedInUserinfo] = useState(null);
-  const [userdata] = useContext(AuthContext);
+  const userdata = useContext(AuthContext);
 
   useEffect(() => {
     const loggedInUserStr = localStorage.getItem('loggedInUser');
